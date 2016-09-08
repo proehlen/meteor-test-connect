@@ -1,0 +1,27 @@
+<head>
+  <title>meteor-test-connect</title>
+</head>
+
+<body>
+
+  {{> main}}
+</body>
+
+<template name="main">
+  <h4>Test DDP connection to server</h4>
+  <input id="url" placeholder="Server url"/>
+  <button id="test">Test</button>
+
+  {{#if connection.status}}
+    <h4>Connection</h4>
+    {{#with connection}}
+      {{#with status}}
+        Status: {{status}}<br/>
+        Connected: {{#if connected}}Yes{{else}}No{{/if}}<br/>
+        Retries: {{retryCount}}<br/>
+      {{/with}}
+    {{/with}}
+    <button id="stop">Stop</button>
+  {{/if}}
+</template>
+
